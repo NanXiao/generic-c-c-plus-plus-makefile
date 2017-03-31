@@ -6,8 +6,10 @@
 CC=g++
 # Compile flags.
 CFLAGS=-g -c
+# Link flags.
+LDFLAGS=
 # Linked libraries.
-LDFLAGS=../HElib/src/fhe.a ../ntl-10.3.0/src/ntl.a -lgmp -lpthread
+LDLIBS=../HElib/src/fhe.a ../ntl-10.3.0/src/ntl.a -lgmp -lpthread
 # Non-stand include paths.
 INCLUDE_PATH=-I.. -I../ntl-10.3.0/include -I./include
 
@@ -24,7 +26,7 @@ EXEC=app
 
 # Build final executable file
 all: $(EXEC) $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(EXEC) $(LDFLAGS) 
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $(EXEC) $(LDLIBS) 
 
 # For insurance: if any header file is changed, re-compile the whole project.
 %.o:%.cpp $(HEADERS)
