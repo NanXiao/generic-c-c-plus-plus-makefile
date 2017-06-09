@@ -27,7 +27,7 @@ EXEC=app
 # Build final executable file
 all: $(EXEC)
 $(EXEC): $(OBJECTS)
-        $(CC) $(LDFLAGS) $^ -o $@ $(LDLIBS)
+	$(CC) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
 # For insurance: if any header file is changed, re-compile the whole project.
 %.o:%.cpp $(HEADERS)
